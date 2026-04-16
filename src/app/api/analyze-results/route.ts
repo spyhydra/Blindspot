@@ -86,7 +86,14 @@ export async function POST(req: Request) {
         // Extract only the JSON object
         const jsonMatch = responseText.match(/\{[\s\S]*\}/);
         const cleanedText = jsonMatch ? jsonMatch[0] : responseText;
-        const data = JSON.parse(cleanedText);
+
+        let data;
+        try {
+            data = JSON.parse(cleanedText);
+        } catch (e) {
+            console.error("Failed to parse analysis response:", responseText);
+            throw new Error("AI returned malformed analysis: " + responseText.substring(0, 50));
+        }
 
         return NextResponse.json(data);
     } catch (error: any) {

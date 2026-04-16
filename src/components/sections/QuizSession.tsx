@@ -45,6 +45,9 @@ export default function QuizSession({ session }: { session: SessionType }) {
 
                 // Save analysis to session storage so /results can read it
                 sessionStorage.setItem("blindspot_analysis", JSON.stringify(data));
+
+                // Clear the original prompt now that we're done so the browser back button doesn't trigger a replay
+                sessionStorage.removeItem("blindspot_session_prompt");
                 router.push("/results");
 
             } catch (e) {
