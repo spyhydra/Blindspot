@@ -1,17 +1,21 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
+import { useAuth } from "@/context/AuthContext";
+import UserMenu from "@/components/auth/UserMenu";
 
 const navLinks = [
-    { label: "Features", href: "#features" },
-    { label: "How it Works", href: "#how-it-works" },
-    { label: "Pricing", href: "#pricing" },
-    { label: "FAQ", href: "#faq" },
+    { label: "Features", href: "/#features" },
+    { label: "How it Works", href: "/#how-it-works" },
+    { label: "Pricing", href: "/#pricing" },
+    { label: "FAQ", href: "/#faq" },
 ];
 
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [open, setOpen] = useState(false);
+    const { user, loading } = useAuth();
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 20);
@@ -26,39 +30,47 @@ export default function Navbar() {
         >
             <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
                 {/* Logo */}
-                <a href="#" className="flex items-center gap-2 group" id="nav-logo">
+                <Link href={user ? "/studio" : "/"} className="flex items-center gap-2 group" id="nav-logo">
                     <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-violet-500/40 group-hover:scale-110 transition-transform">
                         <span className="text-white font-black text-sm">B</span>
                     </div>
                     <span className="text-white font-bold text-lg tracking-tight">
                         Blind<span className="text-violet-400">spot</span>
                     </span>
-                </a>
+                </Link>
 
                 {/* Desktop links */}
                 <ul className="hidden md:flex items-center gap-1">
                     {navLinks.map((link) => (
                         <li key={link.href}>
-                            <a
+                            <Link
                                 href={link.href}
                                 className="px-4 py-2 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-200"
                             >
                                 {link.label}
-                            </a>
+                            </Link>
                         </li>
                     ))}
                 </ul>
 
-                {/* CTA */}
-                <a
-                    href="#cta"
-                    id="nav-cta"
-                    className="hidden md:inline-flex items-center gap-2 px-5 py-2 rounded-xl text-sm font-semibold
-            bg-gradient-to-r from-violet-600 to-indigo-600 text-white
-            hover:from-violet-500 hover:to-indigo-500 transition-all duration-200 shadow-lg shadow-violet-500/30"
-                >
-                    Get Started →
-                </a>
+                {/* CTA / Auth */}
+                <div className="hidden md:flex items-center gap-4">
+                    {loading ? (
+                        <div className="w-8 h-8 rounded-full border-2 border-violet-500/30 border-t-violet-500 animate-spin" />
+                    ) : user ? (
+                        <UserMenu />
+                    ) : (
+                        <Link
+                            href="/auth"
+                            id="nav-cta"
+                            className="inline-flex items-center gap-2 px-5 py-2 rounded-xl text-sm font-semibold
+                 bg-gradient-to-r from-violet-600 to-indigo-600 text-white
+                 hover:from-violet-500 hover:to-indigo-500 transition-all duration-200 shadow-lg shadow-violet-500/30"
+                        >
+                            Sign In →
+                        </Link>
+                    )}
+                </div>
 
                 {/* Mobile toggle */}
                 <button
@@ -81,22 +93,29 @@ export default function Navbar() {
             {open && (
                 <div className="md:hidden bg-[#09090f]/95 backdrop-blur-lg border-t border-white/10 px-6 py-4 flex flex-col gap-2">
                     {navLinks.map((link) => (
-                        <a
+                        <Link
                             key={link.href}
                             href={link.href}
                             onClick={() => setOpen(false)}
                             className="px-4 py-3 rounded-lg text-gray-300 hover:text-white hover:bg-white/10 transition-all"
                         >
                             {link.label}
-                        </a>
+                        </Link>
                     ))}
-                    <a
-                        href="#cta"
-                        onClick={() => setOpen(false)}
-                        className="mt-2 px-4 py-3 rounded-xl text-center font-semibold bg-gradient-to-r from-violet-600 to-indigo-600 text-white"
-                    >
-                        Get Started →
-                    </a>
+
+                    <div className="mt-4 pt-4 border-t border-white/10">
+                        {loading ? null : user ? (
+                            <div className="flex justify-center"><UserMenu /></div>
+                        ) : (
+                            <Link
+                                href="/auth"
+                                onClick={() => setOpen(false)}
+                                className="block px-4 py-3 rounded-xl text-center font-semibold bg-gradient-to-r from-violet-600 to-indigo-600 text-white"
+                            >
+                                Sign In →
+                            </Link>
+                        )}
+                    </div>
                 </div>
             )}
         </header>
