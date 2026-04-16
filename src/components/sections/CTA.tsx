@@ -30,7 +30,7 @@ export default function CTA() {
                     </span>
                 </h2>
                 <p className="text-gray-400 text-lg">
-                    Join 2,400+ teams already using Blindspot to ship with confidence.
+                    Join thousands of developers identifying their knowledge gaps and mastering their tech stack.
                 </p>
 
                 {!submitted ? (

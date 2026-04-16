@@ -1,27 +1,27 @@
 const steps = [
     {
         number: "01",
-        title: "Connect Your Stack",
+        title: "Customize Your Context",
         description:
-            "Link your cloud providers, repositories, and monitoring tools in under 5 minutes via OAuth or API keys.",
+            "Use the Prompt Studio to describe your role, your current tech stack, and the specific topics you want to be tested on.",
     },
     {
         number: "02",
-        title: "AI Learns Your Baseline",
+        title: "Be Honest, Don't Guess",
         description:
-            "Blindspot ingests historical data and trains a model tailored to your unique environment and traffic patterns.",
+            "Take the 10-question assessment. If you aren't 100% sure, hit 'I don't know'. Real growth starts with identifying gaps.",
     },
     {
         number: "03",
-        title: "Detect Anomalies",
+        title: "AI Gap Analysis",
         description:
-            "The engine monitors every metric in real time, surfacing deviations the moment they cross defined thresholds.",
+            "Our Gemini-powered engine classifies your responses into 'Clear', 'Misconception' (wrong guess), or 'Blind Spot' (skipped).",
     },
     {
         number: "04",
-        title: "Act & Resolve",
+        title: "Get Your Roadmap",
         description:
-            "Receive ranked alerts with full context, suggested fixes, and one-click remediation workflows.",
+            "Receive a step-by-step learning guide prioritized by urgency, with high-quality resources to fix your specific weaknesses.",
     },
 ];
 

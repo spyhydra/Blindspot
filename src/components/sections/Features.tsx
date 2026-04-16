@@ -2,45 +2,45 @@ import Card from "@/components/ui/Card";
 
 const features = [
     {
-        icon: "🔍",
-        title: "AI-Powered Detection",
+        icon: "🎭",
+        title: "Prompt Studio",
         description:
-            "Our models continuously scan your pipelines and flag anomalies the moment they appear.",
+            "Don't just take a quiz. Define your role, years of experience, and tech stack to get a customized assessment.",
         color: "violet",
     },
     {
-        icon: "⚡",
-        title: "Real-Time Alerts",
+        icon: "🚫",
+        title: "The 5th Option",
         description:
-            "Push notifications, Slack, email — get pinged on the channel that matters most to you.",
+            "Our assessments include a mandatory 'I don't know' option to distinguish between guessing and actual blind spots.",
         color: "indigo",
     },
     {
-        icon: "📊",
-        title: "Deep Analytics",
+        icon: "🧠",
+        title: "AI Misconception Engine",
         description:
-            "Interactive dashboards that turn raw telemetry into actionable narratives.",
+            "Gemini Pro analyzes your wrong answers to tell the difference between a minor slip and a fundamental misunderstanding.",
         color: "violet",
     },
     {
-        icon: "🔗",
-        title: "One-Click Integrations",
+        icon: "🗺️",
+        title: "Personalized Roadmaps",
         description:
-            "Connect to AWS, GCP, GitHub, Jira, PagerDuty, and 50+ tools without writing a line of code.",
+            "Receive a prioritized learning path with recommended resources for every blind spot we find.",
         color: "indigo",
     },
     {
-        icon: "🛡️",
-        title: "Enterprise Security",
+        icon: "🔐",
+        title: "Ephemeral Sessions",
         description:
-            "SOC 2 Type II certified. Data encrypted at rest and in transit. SSO ready.",
+            "We don't store your quiz data. Your assessments are generated on-the-fly and exist only for your session.",
         color: "violet",
     },
     {
-        icon: "🤖",
-        title: "Autonomous Remediation",
+        icon: "⚖️",
+        title: "Role Calibration",
         description:
-            "Let Blindspot auto-fix low-risk issues so your engineers focus on what matters.",
+            "Set your target role (e.g. Senior Frontend) and the AI will calibrate the difficulty of distractors accordingly.",
         color: "indigo",
     },
 ];

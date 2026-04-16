@@ -1,3 +1,5 @@
+"use client";
+
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
 
@@ -25,43 +27,35 @@ export default function Hero() {
             />
 
             <div className="max-w-4xl mx-auto flex flex-col items-center gap-6">
-                <Badge color="violet">✨ Now in Public Beta</Badge>
+                <Badge color="violet">✨ Find your Knowledge Gaps</Badge>
 
                 <h1 className="text-5xl md:text-7xl font-black text-white leading-tight tracking-tight">
-                    See What Others{" "}
+                    Reveal Your Developer{" "}
                     <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
-                        Miss
+                        Blindspots
                     </span>
                 </h1>
 
                 <p className="max-w-2xl text-lg md:text-xl text-gray-400 leading-relaxed">
-                    Blindspot uses AI to surface the critical insights buried in your
-                    data — giving your team a decisive edge before problems become
-                    catastrophes.
+                    Generic quizzes let you guess. Blindspot uses AI to generate custom
+                    assessments that identify exactly what you don't know — before your next interview or PR.
                 </p>
 
                 <div className="flex flex-wrap items-center justify-center gap-4 mt-4" id="hero-ctas">
-                    <Button variant="primary" size="lg" id="hero-cta-primary">
-                        Start for Free →
+                    <Button variant="primary" size="lg" id="hero-cta-primary" onClick={() => window.location.href = '/studio'}>
+                        Explore Studio →
                     </Button>
-                    <Button variant="secondary" size="lg" id="hero-cta-secondary">
-                        Watch Demo
+                    <Button variant="secondary" size="lg" id="hero-cta-secondary" onClick={() => window.location.href = '/auth'}>
+                        Sign Up Free
                     </Button>
                 </div>
-
-                {/* Social proof */}
-                <p className="text-sm text-gray-500 mt-2">
-                    Trusted by{" "}
-                    <span className="text-white font-semibold">2,400+</span> teams worldwide
-                    · No credit card required
-                </p>
 
                 {/* Floating stats row */}
                 <div className="mt-10 grid grid-cols-3 gap-6 md:gap-12">
                     {[
-                        { value: "98%", label: "Accuracy" },
-                        { value: "3×", label: "Faster insights" },
-                        { value: "< 5 min", label: "Setup time" },
+                        { value: "5th", label: "Option: I don't know" },
+                        { value: "100%", label: "Adaptive AI" },
+                        { value: "0", label: "Guesswork" },
                     ].map((stat) => (
                         <div key={stat.label} className="flex flex-col items-center">
                             <span className="text-3xl md:text-4xl font-black bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent">
